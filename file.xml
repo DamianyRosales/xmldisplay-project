@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<Users>
+	<User>
+		<ID>79a915e4-1d2b-4078-a6ed-7f712b01c681</ID>
+		<Email>damiany_ros@hotmail.com</Email>
+		<Name>Damiany Rosales</Name>
+	</User>
+	<User>
+		<ID>a3f20d9f-293c-4441-a7e7-82897d1cbe48</ID>
+		<Email>chava@outlook.com</Email>
+		<Name>Salvador Gutierrez</Name>
+	</User>
+	<User>
+		<ID>1738eff5-4a1e-4387-8915-2b5fca0fded4</ID>
+		<Email>angel@cruz.com</Email>
+		<Name>Ángel Cruz</Name>
+	</User>
+	<User>
+		<ID>e114d6b3-e6a8-4e83-8f50-4f9039e4bbff</ID>
+		<Email>eduardo@retana.com</Email>
+		<Name>Ángel Retana</Name>
+	</User>
+</Users>
