@@ -10,4 +10,17 @@ class User(models.Model):
 
     def __str__(self):
         return str(self.user_id)
-    
+
+class Tab(models.Model):
+    month = models.CharField(max_length=255)
+    year = models.IntegerField()
+    food = models.IntegerField()
+    brewery = models.IntegerField()
+    chemical_products  = models.IntegerField()
+    other_manufactures = models.IntegerField()
+    textiles_leather = models.IntegerField()
+    total = models.IntegerField()
+
+    def __str__(self):
+        name = str(self.year) + '-' + str(self.month)
+        return name
