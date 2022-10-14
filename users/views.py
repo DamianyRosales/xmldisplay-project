@@ -3,15 +3,17 @@ import  xml.etree.ElementTree as xmltree
 from xml.dom import minidom
 from django.http import HttpResponse
 from rest_framework.views import APIView
+from rest_framework_xml.renderers import XMLRenderer
+from rest_framework.response import Response
+from .serializers import TabSerializer
 
 # Create your views here.
 
 save_path_file = "file.xml"
 
-def my_view(APIView):
-    
+class My_view(APIView):
 
-    def get(request, format=None):
+    def get(self, request):
         root = xmltree.Element('Tabs')
         current_year=0
         for i in Tab.objects.all():
@@ -47,7 +49,19 @@ def my_view(APIView):
         with open ('file.xml', "w") as files :
             files.write(xmlstr)
 
-
+        
         #return HttpResponse(open('file.xml').read(), content_type='application/xml')
-        #html = '<pre>' + open('file.xml').read() + '</pre>'
-        #return HttpResponse(html)
+        html = '<pre>' + open('file.xml').read() + '</pre>'
+        return HttpResponse(html)
+
+class MyXMLRenderer(XMLRenderer):
+    root_tag_name = 'tabs'
+    item_tag_name = 'tabs'
+
+class ViewTab(APIView):
+    renderer_classes = [XMLRenderer,]
+
+    def get(self, request):
+        tab = Tab.objects.all()
+        tab_serializer = TabSerializer(tab, many=True)
+        return Response(tab_serializer.data)
